@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyn.mapper.ManageMapper">
+    <!-- 查询用户条数 -->
+    <select id="getUserCount" resultType="int">
+        select count(*) from user
+        <where>
+            <if test="name!=null and name!= '' ">
+                username = #{name}
+            </if>
+            <if test="role=='admin' or role =='user' ">
+                and role = #{role}
+            </if>
+        </where>
+    </select>
+
+    <select id="getUsers" resultType="com.hyn.pojo.User">
+        select * from user
+        <where>
+            <if test="name!= '' ">
+                username = #{name}
+            </if>
+            <if test="role=='admin' or role == 'user' ">
+                and role = #{role}
+            </if>
+        </where>
+        limit #{currentPage},#{pageSize}
+    </select>
+</mapper>

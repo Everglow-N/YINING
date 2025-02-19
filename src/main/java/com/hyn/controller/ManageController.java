@@ -13,8 +13,24 @@ public class ManageController {
     @Autowired
     private ManageService manageService;
 
-    @PostMapping("/manage/login")
+    @PostMapping("/admin/login")
     public Result ManageLogin(@RequestBody Manage manage) {
-       return manageService.getManage(manage);
+        return manageService.getManage(manage);
     }
+
+    @GetMapping("/admin/getAdminInfo")
+    public Result getAdminInfo(@RequestHeader String adminToken) {
+        return manageService.getAdminInfo(adminToken);
+    }
+
+    @GetMapping("/admin/getUserCount")
+    public Result getUserCount(@RequestParam String name, @RequestParam String role) {
+        return manageService.getUserCount(name, role);
+    }
+
+    @GetMapping("/admin/getUsers")
+    public Result getUsers(@RequestParam String name, @RequestParam String role,@RequestParam int currentPage, @RequestParam int pageSize) {
+        return manageService.getUsers(name,role,currentPage,pageSize);
+    }
+
 }

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ManageLoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String jwt = request.getHeader("ManageToken");
+        String jwt = request.getHeader("adminToken");
         log.info("manage拦截器启动啦");
         if (jwt == null) {
             log.info("Manage请求头token为空，返回未登录信息");

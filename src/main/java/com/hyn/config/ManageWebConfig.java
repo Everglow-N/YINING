@@ -12,7 +12,7 @@ public class ManageWebConfig implements WebMvcConfigurer {
         ManageLoginInterceptor manageLoginInterceptor;
         @Override
         public void addInterceptors(InterceptorRegistry registry) {
-            registry.addInterceptor(manageLoginInterceptor).addPathPatterns("/manage/**").excludePathPatterns("/manage/login");
+            registry.addInterceptor(manageLoginInterceptor).addPathPatterns("/admin/**").excludePathPatterns("/admin/login");
         }
     }
 

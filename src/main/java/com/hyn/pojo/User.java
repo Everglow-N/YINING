@@ -10,6 +10,46 @@ public class User {
     private LocalDate register_time;
     private String description;
     private String sex;
+    private String role;
+    private int age;
+    private String school;
+    private long phone;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(long phone) {
+        this.phone = phone;
+    }
+
+
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
     public User() {
     }
 
@@ -31,6 +71,7 @@ public class User {
         this.sex = sex;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
@@ -41,6 +82,7 @@ public class User {
                 ", register_time=" + register_time +
                 ", description='" + description + '\'' +
                 ", sex='" + sex + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 
